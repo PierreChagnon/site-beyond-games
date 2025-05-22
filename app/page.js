@@ -18,41 +18,42 @@ import { Suspense } from "react"
 import Spline from "@splinetool/react-spline/next"
 import { AnimationWrapper } from "@/components/animation-wrapper"
 import SectionBadge from "@/components/section-badge"
+import { ContactForm } from "@/components/contact-form"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-zinc-800 flex items-center justify-center px-4 md:px-0">
+      <header className="sticky top-0 z-50 w-full bg-black text-primary-foreground border-b border-zinc-800 flex items-center justify-center px-4 md:px-0">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative h-9 w-9">
               <Image src="/owl.svg" alt="Beyond Games Logo" fill className="object-contain" priority />
             </div>
-            <span className="text-xl font-semibold text-primary">Beyond Games</span>
+            <span className="text-xl font-semibold">Beyond Games</span>
           </div>
           <nav className="hidden md:flex gap-8">
             <Link
               href="#solutions"
-              className="text-sm font-medium text-primary hover:text-muted-foreground transition-colors"
+              className="text-sm font-medium hover:text-muted-foreground transition-colors"
             >
               Solutions
             </Link>
             <Link
               href="#benefits"
-              className="text-sm font-medium text-primary hover:text-muted-foreground transition-colors"
+              className="text-sm font-medium hover:text-muted-foreground transition-colors"
             >
               Benefits
             </Link>
             <Link
               href="#projects"
-              className="text-sm font-medium text-primary hover:text-muted-foreground transition-colors"
+              className="text-sm font-medium hover:text-muted-foreground transition-colors"
             >
               Projects
             </Link>
             <Link
               href="#faq"
-              className="text-sm font-medium text-primary hover:text-muted-foreground transition-colors"
+              className="text-sm font-medium hover:text-muted-foreground transition-colors"
             >
               FAQ
             </Link>
@@ -123,7 +124,7 @@ export default function LandingPage() {
         </section>
 
         {/* Quote Section - Moved outside hero */}
-        <section className="py-24 mt-20 bg-background flex items-center justify-center">
+        <section className="py-44 bg-background flex items-center justify-center">
           <div className="container px-4 md:px-6">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="max-w-4xl mx-auto">
@@ -139,87 +140,15 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Solutions Section */}
-        <section id="solutions" className="py-24 md:py-36 bg-background relative flex items-center justify-center">
-          <div className="container px-4 md:px-6 relative">
-            <AnimationWrapper direction="up" duration={0.6}>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                <SectionBadge>Our Solutions</SectionBadge>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-                  Comprehensive <span className="text-primary">Research Solutions</span>
-                </h2>
-                <p className="max-w-[800px] text-muted-foreground text-lg">
-                  From concept to deployment, we provide end-to-end solutions for behavioral science research.
-                </p>
-              </div>
-            </AnimationWrapper>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: <Globe className="h-10 w-10 text-orange" />,
-                  title: "Scientific Communication Sites",
-                  description:
-                    "Engaging websites to showcase your research findings and make complex concepts accessible to a wider audience.",
-                },
-                {
-                  icon: <FileText className="h-10 w-10 text-orange" />,
-                  title: "Online Questionnaires",
-                  description:
-                    "Interactive and engaging questionnaires that increase completion rates and improve data quality.",
-                },
-                {
-                  icon: <Brain className="h-10 w-10 text-orange" />,
-                  title: "Behavioral Tasks Online",
-                  description:
-                    "Transform traditional behavioral tasks into digital experiences that maintain scientific validity.",
-                },
-                {
-                  icon: <Clock className="h-10 w-10 text-orange" />,
-                  title: "Longitudinal Studies",
-                  description:
-                    "Platforms designed to maintain participant engagement over extended periods, reducing dropout rates.",
-                },
-                {
-                  icon: <Gamepad className="h-10 w-10 text-orange" />,
-                  title: "Gamified Experiments",
-                  description:
-                    "Full-fledged mini-games that transform experimental paradigms into enjoyable experiences.",
-                },
-                {
-                  icon: <Braces className="h-10 w-10 text-orange" />,
-                  title: "Custom Research Platforms",
-                  description:
-                    "Tailored platforms that give researchers complete control over experimental parameters and data collection.",
-                },
-              ].map((solution, index) => (
-                <AnimationWrapper key={index} direction="up" delay={0.1 + index * 0.1}>
-                  <Card className="hover:shadow-md transition-all duration-300 h-full group border-primary/40 bg-gradient-to-r from-primary/10 to-primary/5 hover:bg-primary/10 hover:cursor-pointer">
-                    <CardHeader className="pb-2">
-                      <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 bg-primary/10">
-                        {solution.icon}
-                      </div>
-                      <CardTitle className="text-xl font-semibold text-card-foreground">
-                        <span className="text-primary">{solution.title.split(" ")[0]}</span>{" "}
-                        {solution.title.split(" ").slice(1).join(" ")}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{solution.description}</p>
-                      <div className="mt-4 flex items-center transition-colors text-primary">
-                        <span className="text-sm font-medium text-orange/50">Learn more</span>
-                        <ChevronRight className="ml-1 h-4 w-4 text-orange/50" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimationWrapper>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Benefits Section */}
         <section id="benefits" className="py-24 md:py-36 relative overflow-hidden bg-secondary flex items-center justify-center">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: "radial-gradient(circle, var(--primary) 1px, transparent 1px)",
+              backgroundSize: "30px 30px",
+            }}
+          ></div>
           <div className="container px-4 md:px-6 relative z-10">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -278,8 +207,87 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Solutions Section */}
+        <section id="solutions" className="py-24 md:py-36 bg-background relative flex items-center justify-center">
+          <div className="container px-4 md:px-6 relative">
+            <AnimationWrapper direction="up" duration={0.6}>
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <SectionBadge>Our Solutions</SectionBadge>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+                  Comprehensive <span className="text-primary">Research Solutions</span>
+                </h2>
+                <p className="max-w-[800px] text-muted-foreground text-lg">
+                  From concept to deployment, we provide end-to-end solutions for behavioral science research.
+                </p>
+              </div>
+            </AnimationWrapper>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <Globe className="h-10 w-10 text-primary" />,
+                  title: "Scientific Communication Sites",
+                  description:
+                    "Engaging websites to showcase your research findings and make complex concepts accessible to a wider audience.",
+                },
+                {
+                  icon: <FileText className="h-10 w-10 text-primary" />,
+                  title: "Online Questionnaires",
+                  description:
+                    "Interactive and engaging questionnaires that increase completion rates and improve data quality.",
+                },
+                {
+                  icon: <Brain className="h-10 w-10 text-primary" />,
+                  title: "Behavioral Tasks Online",
+                  description:
+                    "Transform traditional behavioral tasks into digital experiences that maintain scientific validity.",
+                },
+                {
+                  icon: <Clock className="h-10 w-10 text-primary" />,
+                  title: "Longitudinal Studies",
+                  description:
+                    "Platforms designed to maintain participant engagement over extended periods, reducing dropout rates.",
+                },
+                {
+                  icon: <Gamepad className="h-10 w-10 text-primary" />,
+                  title: "Gamified Experiments",
+                  description:
+                    "Full-fledged mini-games that transform experimental paradigms into enjoyable experiences.",
+                },
+                {
+                  icon: <Braces className="h-10 w-10 text-primary" />,
+                  title: "Custom Research Platforms",
+                  description:
+                    "Tailored platforms that give researchers complete control over experimental parameters and data collection.",
+                },
+              ].map((solution, index) => (
+                <AnimationWrapper key={index} direction="up" delay={0.1 + index * 0.1}>
+                  <Card className="hover:shadow-md transition-all duration-300 h-full group border-primary/40 bg-gradient-to-r from-primary/10 to-primary/5 hover:bg-primary/10 hover:cursor-pointer">
+                    <CardHeader className="pb-2">
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 bg-primary/10">
+                        {solution.icon}
+                      </div>
+                      <CardTitle className="text-xl font-semibold text-card-foreground">
+                        <span className="text-primary">{solution.title.split(" ")[0]}</span>{" "}
+                        {solution.title.split(" ").slice(1).join(" ")}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">{solution.description}</p>
+                      <div className="mt-4 flex items-center transition-colors text-primary">
+                        <span className="text-sm font-medium text-orange/50">Learn more</span>
+                        <ChevronRight className="ml-1 h-4 w-4 text-orange/50" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </AnimationWrapper>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Projects Section */}
-        <section id="projects" className="py-24 md:py-36 bg-background flex items-center justify-center">
+        <section id="projects" className="py-24 md:py-36 bg-secondary flex items-center justify-center">
           <div className="container px-4 md:px-6">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -355,7 +363,7 @@ export default function LandingPage() {
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="py-24 md:py-36 bg-secondary flex items-center justify-center">
+        <section id="faq" className="py-24 md:py-36 bg-background flex items-center justify-center">
           <div className="container px-4 md:px-6">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -421,26 +429,7 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6 relative z-10">
             <AnimationWrapper direction="up" duration={0.7}>
               <div className="max-w-4xl mx-auto rounded-2xl p-8 md:p-12 text-center shadow-sm border border-primary/20 bg-gradient-to-r from-primary/10 to-primary/5">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                  Ready to <span className="text-primary">transform</span> your research experience?
-                </h2>
-                <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-                  Let&apos;s collaborate to create <span className="text-primary font-medium">engaging</span>, scientifically
-                  rigorous digital experiences for your research projects.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="btn-primary px-8 py-6 text-base">
-                    Start a Project
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="px-8 py-6 text-base border-primary text-primary hover:bg-primary/10"
-                  >
-                    Schedule a Consultation
-                  </Button>
-                </div>
-                <p className="text-muted-foreground text-sm mt-6">No commitment required for initial consultations.</p>
+                <ContactForm />
               </div>
             </AnimationWrapper>
           </div>
@@ -452,7 +441,7 @@ export default function LandingPage() {
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="text-center">
                 <p className="text-center text-sm mb-8 uppercase tracking-wider font-medium text-muted-foreground">
-                  TRUSTED BY <span className="text-primary">LEADING INSTITUTIONS</span>
+                  TRUSTED BY
                 </p>
                 <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
                   <div className="text-secondary-foreground font-medium text-xl">ENS</div>
