@@ -1,5 +1,7 @@
 import { Inter, Montserrat } from "next/font/google"
 import "./globals.css"
+import CustomCursor from "@/components/custom-cursor"
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const montserrat = Montserrat({
@@ -18,6 +20,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
+        {/* Custom Cursor */}
+        {/* <CustomCursor /> */}
         {children}
       </body>
     </html>

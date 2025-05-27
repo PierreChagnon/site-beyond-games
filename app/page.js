@@ -19,64 +19,73 @@ import Spline from "@splinetool/react-spline/next"
 import { AnimationWrapper } from "@/components/animation-wrapper"
 import SectionBadge from "@/components/section-badge"
 import { ContactForm } from "@/components/contact-form"
+import ScrollTriggered from "@/components/framer-animation"
+import Owl from "@/components/3d-owl"
+import Box from "@/components/box"
+import { CustomCarousel } from "@/components/custom-carousel"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full bg-black text-primary-foreground border-b border-zinc-800 flex items-center justify-center px-4 md:px-0">
+      <header className="sticky top-0 z-50 w-full  text-black flex items-center justify-center px-4 md:px-0">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full">
             <div className="relative h-9 w-9">
               <Image src="/owl.svg" alt="Beyond Games Logo" fill className="object-contain" priority />
             </div>
             <span className="text-xl font-semibold">Beyond Games</span>
           </div>
-          <nav className="hidden md:flex gap-8">
-            <Link
-              href="#solutions"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors"
-            >
-              Solutions
-            </Link>
-            <Link
-              href="#benefits"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors"
-            >
-              Benefits
-            </Link>
-            <Link
-              href="#projects"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors"
-            >
-              Projects
-            </Link>
-            <Link
-              href="#faq"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors"
-            >
-              FAQ
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button type="button" className="">Contact Us</Button>
+          <div className="flex items-center justify-end w-full gap-8">
+            <nav className="hidden md:flex gap-8">
+              <Link
+                href="#solutions"
+                className="text-sm font-medium hover:text-muted-foreground transition-colors"
+              >
+                Solutions
+              </Link>
+              <Link
+                href="#benefits"
+                className="text-sm font-medium hover:text-muted-foreground transition-colors"
+              >
+                Benefits
+              </Link>
+              <Link
+                href="#projects"
+                className="text-sm font-medium hover:text-muted-foreground transition-colors"
+              >
+                Projects
+              </Link>
+              <Link
+                href="#faq"
+                className="text-sm font-medium hover:text-muted-foreground transition-colors"
+              >
+                FAQ
+              </Link>
+            </nav>
+            <div className="flex items-center gap-4">
+              <Button type="button" className="">Contact Us</Button>
+            </div>
           </div>
         </div>
       </header>
 
       <main className="">
         {/* Hero Section with Spline Background*/}
-        <section className="relative min-h-screen flex items-center justify-center">
+        <section className="relative py-24 md:py-36 flex items-center justify-center bg-black m-4 md:m-8 rounded-4xl">
           {/* Spline Background */}
           <div className="absolute inset-0 w-full h-full z-0">
             <Suspense fallback={<div className="w-full h-full bg-primary"></div>}>
-              <Spline scene="https://prod.spline.design/t-eJ9f4iaDPRBwVZ/scene.splinecode" className="w-full h-full" />
+              <Spline scene="https://prod.spline.design/t-eJ9f4iaDPRBwVZ/scene.splinecode" className="w-full h-full rounded-4xl border border-white" />
               {/* <Spline scene="https://prod.spline.design/q-D3s6DrAfEDjpyP/scene.splinecode" className="w-full h-full" /> */}
               {/* Overlay to hide "Built with Spline" watermark */}
-              <div className="absolute bottom-0 right-0 w-[200px] h-[60px] bg-black z-10"></div>
+              <div className="absolute bottom-0 right-0 w-[200px] h-[60px] bg-black rounded-4xl z-10"></div>
             </Suspense>
           </div>
-          <div className="container relative px-4 md:px-0 z-20 pointer-events-none flex items-center justify-center">
+          {/* <div className="hidden md:inline absolute inset-0 w-full h-full z-0">
+            <Owl />
+          </div> */}
+          <div className="container relative px-4 md:px-0 z-20 pointer-events-none flex justify-center items-center">
             <div className="max-w-2xl md:max-w-3xl pointer-events-none">
               <AnimationWrapper direction="up" duration={0.8} delay={0.2}>
                 <div className="space-y-6">
@@ -86,7 +95,7 @@ export default function LandingPage() {
                   >
                     Creating <span className="text-orange">captivating</span> digital experiences
                     <span
-                      className="block mt-2 text-primary/80"
+                      className="block mt-2 text-muted mix-blend-multiply"
                       style={{
                         fontFamily: "'Montserrat', sans-serif",
                         fontWeight: "300",
@@ -115,12 +124,6 @@ export default function LandingPage() {
               </AnimationWrapper>
             </div>
           </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center animate-bounce pointer-events-none">
-            <span className="text-white text-sm mb-2 drop-shadow-md">Scroll to discover</span>
-            <ChevronDown className="h-6 w-6 text-white drop-shadow-md" />
-          </div>
         </section>
 
         {/* Quote Section - Moved outside hero */}
@@ -141,7 +144,7 @@ export default function LandingPage() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-24 md:py-36 relative overflow-hidden bg-secondary flex items-center justify-center">
+        <section id="benefits" className="py-24 md:py-36 relative overflow-hidden bg-amber-300 rounded-4xl m-4 md:m-8 flex items-center justify-center">
           <div
             className="absolute inset-0 opacity-10"
             style={{
@@ -149,6 +152,9 @@ export default function LandingPage() {
               backgroundSize: "30px 30px",
             }}
           ></div>
+          <div className="absolute right-0">
+            <Owl />
+          </div>
           <div className="container px-4 md:px-6 relative z-10">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -189,7 +195,8 @@ export default function LandingPage() {
                 },
               ].map((benefit, index) => (
                 <AnimationWrapper key={index} direction="up" delay={0.2 + index * 0.15}>
-                  <div className="flex gap-4 group p-6 bg-secondary/50 rounded-xl hover:bg-secondary/80 transition-colors duration-300">
+
+                  <Box>
                     <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 bg-primary/10">
                       {benefit.icon}
                     </div>
@@ -200,12 +207,15 @@ export default function LandingPage() {
                       </h3>
                       <p className="text-muted-foreground">{benefit.description}</p>
                     </div>
-                  </div>
+                  </Box>
+
                 </AnimationWrapper>
               ))}
             </div>
           </div>
         </section>
+
+        {/* <ScrollTriggered /> */}
 
         {/* Solutions Section */}
         <section id="solutions" className="py-24 md:py-36 bg-background relative flex items-center justify-center">
@@ -262,7 +272,7 @@ export default function LandingPage() {
                 },
               ].map((solution, index) => (
                 <AnimationWrapper key={index} direction="up" delay={0.1 + index * 0.1}>
-                  <Card className="hover:shadow-md transition-all duration-300 h-full group border-primary/40 bg-gradient-to-r from-primary/10 to-primary/5 hover:bg-primary/10 hover:cursor-pointer">
+                  <Card className="hover:shadow-md transition-all duration-300 h-full group border-primary/40 bg-gradient-to-r from-primary/10 to-primary/5 hover:bg-primary/10">
                     <CardHeader className="pb-2">
                       <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 bg-primary/10">
                         {solution.icon}
@@ -287,7 +297,7 @@ export default function LandingPage() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-24 md:py-36 bg-secondary flex items-center justify-center">
+        <section id="projects" className="py-24 md:py-36 bg-background flex items-center justify-center">
           <div className="container px-4 md:px-6">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
@@ -301,63 +311,10 @@ export default function LandingPage() {
                 </p>
               </div>
             </AnimationWrapper>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "The Deep Model",
-                  institution: "ENS",
-                  description:
-                    "A gamified platform to study video game preferences, providing users with personalized player profiles and targeted recommendations.",
-                  image: "/deep.png",
-                },
-                {
-                  title: "Metachoix",
-                  institution: "Institut Jean Nicod, Paris",
-                  description:
-                    "An online platform for administering metachoice tasks, allowing researchers to study decision-making processes.",
-                  image: "/metachoix.png",
-                },
-                {
-                  title: "Cognitive Flexibility Assessment",
-                  institution: "CNRS",
-                  description:
-                    "A gamified task measuring cognitive flexibility, transforming traditional switch-cost paradigms into an engaging experience.",
-                  image: "/recipe.png",
-                },
-              ].map((project, index) => (
-                <AnimationWrapper key={index} direction="up" delay={0.2 + index * 0.15}>
-                  <Card className="overflow-hidden bg-card h-full hover:shadow-lg transition-shadow duration-300 group border-primary/40">
-                    <div className="aspect-video relative overflow-hidden">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <CardTitle className="text-xl font-semibold text-card-foreground">
-                          <span className="text-primary">{project.title.split(" ")[0]}</span>{" "}
-                          {project.title.split(" ").slice(1).join(" ")}
-                        </CardTitle>
-                        <div className="text-xs px-2 py-1 rounded-full text-primary bg-primary/10">
-                          {project.institution}
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
-                      <div className="mt-4 flex items-center transition-colors text-primary">
-                        <span className="text-sm font-medium">View case study</span>
-                        <ChevronRight className="ml-1 h-4 w-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimationWrapper>
-              ))}
+            <div className="">
+              <AnimationWrapper direction="up" delay={0.6}>
+                <CustomCarousel />
+              </AnimationWrapper>
             </div>
           </div>
         </section>
@@ -436,7 +393,7 @@ export default function LandingPage() {
         </section>
 
         {/* Trusted By Section - Moved here from hero */}
-        <section className="py-20 bg-secondary flex items-center justify-center">
+        <section className="py-20 bg-background flex items-center justify-center">
           <div className="container px-4 md:px-6">
             <AnimationWrapper direction="up" duration={0.6}>
               <div className="text-center">

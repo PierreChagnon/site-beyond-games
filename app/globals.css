@@ -119,6 +119,12 @@
 }
 
 
+/* * {
+  cursor: none !important;
+} */
+
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
